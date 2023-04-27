@@ -12,7 +12,7 @@ export default {
     },
 
     logout() {
-        return Http.get(`/${baseUser}/perform_logout`);
+        return Http.get(`/${baseUser}/logout`);
     },
 
     current() {

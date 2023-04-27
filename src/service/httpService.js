@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Qs from 'qs';
-import store from '@/shared/consts/store';
+// import store from '@/shared/consts/store';
 
 const httpService = axios.create({
     baseURL: '/ticket-api/',
@@ -9,13 +9,13 @@ const httpService = axios.create({
     paramsSerializer: params => Qs.stringify(params, { arrayFormat: 'repeat' })
 });
 
-httpService.interceptors.request.use(function (config) {
-    store.setLoadding(true);
-    if(!store.state.count)
-        store.state.count = 0
-    store.state.count++
+// httpService.interceptors.request.use(function (config) {
+//     store.setLoadding(true);
+//     if(!store.state.count)
+//         store.state.count = 0
+//     store.state.count++
 
-    return config;
-})
+//     return config;
+// })
 
 export default httpService;
