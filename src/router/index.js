@@ -15,9 +15,13 @@ const router = new Router({
     routes: [
 
         {
-            path: '/home',
-            name: 'home',
+            path: '/',
             component: TelaInicial,
+        },
+
+        {
+            path: '*',
+            redirect: '/',
         },
     
         {

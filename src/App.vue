@@ -1,6 +1,8 @@
 <template>
-  <Navbar/>
-  <!-- <router-view v-if="false"/> -->
+  <div id="app">
+    <Navbar/>
+    <router-view/>
+  </div>
 </template>
 
 <script>
