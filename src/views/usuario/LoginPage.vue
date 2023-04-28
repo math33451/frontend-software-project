@@ -30,7 +30,7 @@
                 id="password"
                 type="password"
                 placeholder="Digite sua senha"
-                v-model="form.password"
+                v-model="form.senha"
               ></b-form-input>
             </b-form-group>
 
@@ -53,21 +53,37 @@
 </template>
 
 <script>
- 
+ import userService from "@/service/userService.js"
+ import swal from "@/utils/alertUtils.js";
+
 export default {
   data() {
     return {
       form: {
         email: "",
-        password: ""
+        senha: ""
       }
     }
   },
  
   methods: {
-    login() {},
- 
-    register() {},
+    login() {
+      const request = this.mapearLogin();
+      userService.acessarAplicacao(request).then((response =>{
+        localStorage.setItem('user-token', response.data)
+        this.$router.push({name:"dashboard"})
+      }))
+      .catch(() =>{
+        swal.alertError("Usuário não autenticado.")
+      })
+    },
+
+    mapearLogin(){
+      return {
+        email: this.form.email,
+        senha: this.form.senha
+      }
+    }
  
   }
 }

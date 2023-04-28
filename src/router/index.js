@@ -4,6 +4,7 @@ import Router from "vue-router"
 
 import Login from '@/views/usuario/LoginPage.vue'
 import CadastroUsuario from '@/views/usuario/CadastroUsuario.vue'
+import DashBoard from '@/views/usuario/DashBoard.vue'
 import TelaInicial from '@/views/TelaInicial.vue'
 import CadastroTicket from '@/views/ticket/CadastroTicket.vue'
 import DescTicket from '@/views/ticket/DescTicket.vue'
@@ -22,6 +23,12 @@ const router = new Router({
         {
             path: '*',
             redirect: '/',
+        },
+
+        {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: DashBoard,
         },
     
         {

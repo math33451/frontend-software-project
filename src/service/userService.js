@@ -3,19 +3,8 @@ import Http from "../service/httpService";
 let baseUser = "users";
 
 export default {
-    acessarAplicacao() {
-        return Http.get(`/${baseUser}/logged`);
+    acessarAplicacao(login) {
+        return Http.post(`/${baseUser}/login`, login);
     },
 
-    carregarComHeaders(headers) {
-        return Http.get(`/${baseUser}/logged`, {headers: headers});
-    },
-
-    logout() {
-        return Http.get(`/${baseUser}/logout`);
-    },
-
-    current() {
-        return Http.get(`/${baseUser}/logged/current`);
-    }
 }

@@ -1,59 +1,74 @@
 <template>
-    <div class="hello">
-      <h1>{{ msg }}</h1>
-      <p>
-        For a guide and recipes on how to configure / customize this project,<br>
-        check out the
-        <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-      </p>
-      <h3>Installed CLI Plugins</h3>
-      <ul>
-        <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-        <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-      </ul>
-      <h3>Essential Links</h3>
-      <ul>
-        <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-        <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-        <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-        <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-        <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-      </ul>
-      <h3>Ecosystem</h3>
-      <ul>
-        <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-        <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-        <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-        <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-        <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-      </ul>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'TelaInicial',
-    props: {
-      msg: String
+  <b-row class="vh-100 vw-100 row-login">
+    <b-col class="d-flex justify-content-center align-items-center">
+      <div class="col-8">
+        <h2 class="text-center mb-5 title-login">Lista de Tickets</h2>
+        <!-- <b-row>
+          <span style="margin-left: 8px; font-size: 15px;">
+            <strong>
+              <b-icon class="mr-2" icon="search" aria-hidden="true"></b-icon>
+              Pesquisa
+            </strong>
+          </span>
+        </b-row> -->
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Solicitante</th>
+              <th scope="col">Nº Serie Balança</th>
+              <th scope="col">Data Emissão</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item of items" :key="item.id">
+              <td>{{ item.nomeSolicitante }}</td>
+              <td>{{ item.numeroSerieBalanca }}</td>
+              <td>{{ item.dtEmissaoTicket }}</td>
+              <td>
+                <div class="btn-group">
+                  <router-link :to="{name:'ticket', params: {id:item.id}}"><i class="fa fa-pencil"></i></router-link>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </b-col>
+    <b-col sm="7" class="d-flex justify-content-center align-items-center">
+      <img src="@/assets/images/list.svg" class="img-login" />
+    </b-col>
+  </b-row>
+</template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      items: [{ id:1 ,dtEmissaoTicket: 40, nomeSolicitante: 'Dickerson', numeroSerieBalanca: 'Macdonald' }]
     }
+  },
+ 
+  methods: {
+    rowClass(item, type) {
+        if (!item || type !== 'row') return
+        if (item.visualizado === false) return 'table-warning'
+      }
+ 
   }
-  </script>
-  
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-  h3 {
-    margin: 40px 0 0;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  a {
-    color: #42b983;
-  }
-  </style>
-  
+}
+</script>
+ 
+<style>
+
+.img-login {
+  width: 600px;
+  height: 600px;
+}
+ 
+.title-login {
+  font-weight: bold;
+}
+ 
+</style>

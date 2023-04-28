@@ -1,23 +1,30 @@
 import axios from 'axios';
-import Qs from 'qs';
 // import store from '@/shared/consts/store';
 
 const httpService = axios.create({
-    baseURL: '/ticket-api/',
-    headers: { 'X-Requested-With': 'XMLHttpRequest' },
-    withCredentials: true,
-    paramsSerializer: params => Qs.stringify(params, { arrayFormat: 'repeat' })
+    baseURL: 'http://localhost:8085/ticket-api/',
 });
 
-httpService.interceptors.request.use(
-    (config) => {
-      config.headers.Authorization = `Bearer ${token}`;
-   
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-   );
+// httpService.interceptors.request.use((config) => {
+//     const token = localStorage.getItem('user-token')
+  
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`
+//     }
+  
+//     return config
+//   }, (err) => {
+//     return Promise.reject(err)
+//   })
+  
+//   httpService.interceptors.response.use((response) => {
+//     return response
+//   }, (error) => {
+//     if (error.response.status === 401) {
+//       window.location = '#/home'
+//     }
+  
+//     return Promise.reject(error)
+//   })
 
 export default httpService;
