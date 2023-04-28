@@ -1,7 +1,6 @@
 import { createApp } from "vue"
 import App from './App'
 import { createRouter, createWebHistory } from "vue-router"
-import { requiredAuth } from './autentication';
 
 
 import Login from '@/views/usuario/LoginPage.vue'
@@ -44,7 +43,6 @@ const router = createRouter({
             path: '/tickets',
             name: 'tickets',
             component: ListTicket,
-            beforeEnter: requiredAuth,
         },
     
         
@@ -52,7 +50,6 @@ const router = createRouter({
             path: '/ticket/:id',
             name: 'ticket',
             component: DescTicket,
-            beforeEnter: requiredAuth,
         },
     ]
 })

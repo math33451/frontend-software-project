@@ -1,14 +1,15 @@
 <template>
-  <TelaInicial msg="Welcome to Your Vue.js App"/>
+  <Navbar/>
+  <router-view/>
 </template>
 
 <script>
-import TelaInicial from './views/TelaInicial.vue'
+import Navbar from './components/NavBar.vue';
 
-export default {
-  name: 'App',
+export default{
   components: {
-    TelaInicial
+    Navbar
   }
 }
+
 </script>

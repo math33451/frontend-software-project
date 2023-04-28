@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Vue JWT Client</h1>
+    <h1>Tela inicial Client</h1>
     <form v-on:submit.prevent="onSubmit">
       <input type="email" name="email" v-model="email">
       <input type="password" name="password" v-model="password">
@@ -10,13 +10,5 @@
 </template>
 
 <script>
-export default {
-  name: 'LoginPage',
-  data(){
-    return{ 
-      email:'',
-      password:''
-    }
-  }
-}
+
 </script>

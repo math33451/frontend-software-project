@@ -9,13 +9,15 @@ const httpService = axios.create({
     paramsSerializer: params => Qs.stringify(params, { arrayFormat: 'repeat' })
 });
 
-// httpService.interceptors.request.use(function (config) {
-//     store.setLoadding(true);
-//     if(!store.state.count)
-//         store.state.count = 0
-//     store.state.count++
-
-//     return config;
-// })
+httpService.interceptors.request.use(
+    (config) => {
+      config.headers.Authorization = `Bearer ${token}`;
+   
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+   );
 
 export default httpService;
