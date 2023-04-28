@@ -1,6 +1,5 @@
-import { createApp } from "vue"
-import App from './App'
-import { createRouter, createWebHistory } from "vue-router"
+import Vue from "vue"
+import Router from "vue-router"
 
 
 import Login from '@/views/usuario/LoginPage.vue'
@@ -10,14 +9,14 @@ import CadastroTicket from '@/views/ticket/CadastroTicket.vue'
 import DescTicket from '@/views/ticket/DescTicket.vue'
 import ListTicket from '@/views/ticket/ListTicket.vue'
 
+Vue.use(Router);
 
-const router = createRouter({
-    history: createWebHistory(),
+const router = new Router({
     routes: [
 
         {
             path: '/home',
-            name: 'telaInicial',
+            name: 'home',
             component: TelaInicial,
         },
     
@@ -54,8 +53,5 @@ const router = createRouter({
     ]
 })
 
-
-const app = createApp(App)
-app.use(router)
 
 export default router
