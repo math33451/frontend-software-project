@@ -42,19 +42,22 @@
 </template>
 
 <script>
+import ticketService from "@/service/ticketService.js"
 
 export default {
   data() {
     return {
-      items: [{ id:1 ,dtEmissaoTicket: 40, nomeSolicitante: 'Dickerson', numeroSerieBalanca: 'Macdonald' }]
+      items: [],
     }
   },
  
+  created: function ()  {
+      ticketService.buscarTodosTickets().then((response) =>{
+        this.items = response.data
+      })
+  },
+
   methods: {
-    rowClass(item, type) {
-        if (!item || type !== 'row') return
-        if (item.visualizado === false) return 'table-warning'
-      }
  
   }
 }

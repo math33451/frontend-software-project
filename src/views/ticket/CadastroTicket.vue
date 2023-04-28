@@ -105,14 +105,6 @@
               @click="cadastrarTicket">
               <i class="fas fa-sign-in-alt"></i> Enviar
             </b-button>
-
-            <b-button
-              type="button"
-              variant="primary"
-              block
-              @click="buscarTicket">
-              <i class="fas fa-sign-in-alt"></i> find
-            </b-button>
         </b-form>
       </div>
     </b-col>
@@ -149,15 +141,6 @@ export default {
       })
       .catch(() =>{
         swal.alertError("Erro ao enviar o ticket, tente novamente mais tarde.")
-      })
-    },
-    buscarTicket() {
-      TicketService.buscarTickets().then((response) =>{
-        console.log(response.data)
-        swal.alertError("sucesso")
-      })
-      .catch(() =>{
-        swal.alertError("Impossível buscar")
       })
     },
 
