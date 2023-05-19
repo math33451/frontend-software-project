@@ -16,6 +16,26 @@
                   </b-button>
                 </router-link>
               </div>
+              <br />
+              <div class="col text-center">
+                <router-link to="/balancas">
+                  <b-button
+                    type="button"
+                    variant="primary">
+                    <i class="fas fa-sign-in-alt"></i> Visualizar Balanças
+                  </b-button>
+                </router-link>
+              </div>
+              <br />
+              <div class="col text-center">
+                <router-link to="/estoque">
+                  <b-button
+                    type="button"
+                    variant="primary">
+                    <i class="fas fa-sign-in-alt"></i> Estoque de Peças
+                  </b-button>
+                </router-link>
+              </div>
           </b-form>
         </div>
       </b-col>
