@@ -7,25 +7,24 @@
         <b-form>
           <div class="row">
             <div class="col-12">
-              <b-form-group label="Nome Solicitante">
-              <b-form-input
-                class="form-control form-control-sm"
-                v-model="model.nomeSolicitante"
-              ></b-form-input>
-              </b-form-group>
-            </div>
-          </div>
-
-          <br />
-
-          <div class="row">
-            <div class="col-12">
               <b-form-group label="Documento Solicitante">
                 <the-mask 
                 :mask="['###.###.###-##', '##.###.###/####-##']"
                 v-model="model.documentoSolicitante"
                 class="form-control form-control-sm"
                 placeholder="CPF/CNPJ"/>
+              </b-form-group>
+            </div>
+          </div>
+
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <b-form-group label="Nome Solicitante">
+              <b-form-input
+                class="form-control form-control-sm"
+                v-model="model.nomeSolicitante"
+              ></b-form-input>
               </b-form-group>
             </div>
           </div>
@@ -116,6 +115,7 @@
 
 <script>
 import TicketService from "@/service/ticketService.js"
+// import ClienteService from "@/service/clienteService.js"
 import swal from "@/utils/alertUtils.js";
  
 export default {
@@ -138,11 +138,25 @@ export default {
       const request = this.mapearTicket();
       TicketService.criarTicket(request).then((response) =>{
         swal.alertSuccess(response.data)
+        this.$router.push({name:"telaInicial"})
       })
       .catch(() =>{
         swal.alertError("Erro ao enviar o ticket, tente novamente mais tarde.")
       })
     },
+
+    // buscaCliente(){
+    //   const request = this.model.documentoSolicitante;
+    //   ClienteService.buscarPorDocumento(request).then((response) =>{
+    //     this.mapearCliente(response.data);
+    //   })
+    // },
+
+    // mapearCliente(data) {
+    //   this.model.nomeSolicitante = data.nome
+    //   this.model.emailSolicitante = data.email
+    //   this.model.telefoneSolicitante = data.telefone
+    // },
 
     mapearTicket() {
       return {
@@ -156,6 +170,8 @@ export default {
       }
     },
  
+  },
+  computed: {
   }
 }
 </script>

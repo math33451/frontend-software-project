@@ -48,6 +48,20 @@
                 </b-form-group>
               </div>
             </div>
+            <br />
+
+          <div class="row">
+            <div class="col-12">
+              <b-form-group label="Lista de balanças">
+                <b-form-textarea
+                  id="textarea"
+                  v-model="model.listaBalanca"
+                  rows="3"
+                  max-rows="6"
+                ></b-form-textarea>
+              </b-form-group>
+            </div>
+          </div>
           </b-form>
           <b-form>
             <br />
@@ -87,6 +101,9 @@
         model: {
           nome: "",
           documento: "",
+          telefone: "",
+          email: "",
+          listaBalanca: ""
         },
         id: this.$route.params.id
       }
@@ -109,6 +126,7 @@
       this.model.documento = cliente.documento
       this.model.telefone = cliente.telefone
       this.model.email = cliente.email
+      this.model.listaBalanca = cliente.balancas
     },
    
     },

@@ -7,21 +7,23 @@
           <b-form>
             <div class="row">
               <div class="col-6">
-                <b-form-group label="Número de Série">
-                <b-form-input
-                  class="form-control form-control-sm"
-                  v-model="model.numeroSerie"
-                ></b-form-input>
-                </b-form-group>
-              </div>
+              <b-form-group label="Nº Série Balança">
+                <the-mask 
+                :mask="['#####-#']"
+                v-model="model.numeroSerie"
+                class="form-control form-control-sm"
+                placeholder="XXXXX-X"/>
+              </b-form-group>
+            </div>
               
               <div class="col-6">
                 <b-form-group label="Documento Proprietário">
-                  <b-form-input
-                  class="form-control form-control-sm"
-                  v-model="model.documentoProprietario"
-                ></b-form-input>
-                </b-form-group>
+                <the-mask 
+                :mask="['###.###.###-##', '##.###.###/####-##']"
+                v-model="model.documentoProprietario"
+                class="form-control form-control-sm"
+                placeholder="CPF/CNPJ"/>
+              </b-form-group>
               </div>
             </div>
           </b-form>

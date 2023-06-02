@@ -16,6 +16,10 @@ export default {
         return Http.get(`${baseUrl}/${id}`)
     },
 
+    buscarPorDocumento(documento){
+        return Http.get(`${baseUrl}/${documento}`)
+    },
+
     deletarCliente(id){
         return Http.delete(`${baseUrl}/apagar/${id}`)
     }

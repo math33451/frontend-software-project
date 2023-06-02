@@ -26,6 +26,7 @@ const router = new Router({
 
         {
             path: '/',
+            name: 'telaInicial',
             component: TelaInicial,
         },
 

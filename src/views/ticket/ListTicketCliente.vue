@@ -86,7 +86,7 @@
   
     methods: {
         voltar() {
-            this.$router.push({name:"dashboard"})
+            this.$router.push({name:"telaInicial"})
         },
         
         pesquisar(){
