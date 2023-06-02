@@ -16,6 +16,16 @@
                 </b-button>
               </router-link>
             </div>
+            <br />
+            <div class="col text-center">
+              <router-link to="/acompanharTicket">
+                <b-button
+                  type="button"
+                  variant="primary">
+                  <i class="fas fa-sign-in-alt"></i> Acompanhar Tickets
+                </b-button>
+              </router-link>
+            </div>
         </b-form>
       </div>
     </b-col>

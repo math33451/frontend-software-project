@@ -176,10 +176,10 @@ export default {
   },
   mounted(){
     var id = this.$route.params.id;
+    TicketService.setaVisualizado(id)
     TicketService.buscarTicketById(id).then((response) =>{
       let ticket = response.data
       this.mapearTicket(ticket)
-      TicketService.setaVisualizado(id);
     })
   }
 }

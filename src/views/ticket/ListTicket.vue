@@ -17,6 +17,7 @@
               <th scope="col">Solicitante</th>
               <th scope="col">Nº Serie Balança</th>
               <th scope="col">Data Emissão</th>
+              <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -25,6 +26,7 @@
               <td>{{ item.nomeSolicitante }}</td>
               <td>{{ item.numeroSerieBalanca }}</td>
               <td>{{ item.dtEmissaoTicket }}</td>
+              <td>{{ item.status }}</td>
               <td>
                 <div class="btn-group">
                   <router-link :to="{name:'ticket', params: {id:item.id}}"><i class="fa fa-pencil"></i></router-link>
@@ -33,6 +35,13 @@
             </tr>
           </tbody>
         </table>
+        <b-button
+              type="button"
+              variant="secondary"
+              block
+              @click="voltar">
+              <i class="fas fa-sign-in-alt"></i> Voltar
+            </b-button>
       </div>
     </b-col>
     <b-col sm="7" class="d-flex justify-content-center align-items-center">
@@ -58,7 +67,9 @@ export default {
   },
 
   methods: {
- 
+    voltar(){
+            this.$router.push({name:"dashboard"})
+        },
   }
 }
 </script>

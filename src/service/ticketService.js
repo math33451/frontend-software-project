@@ -16,6 +16,10 @@ export default {
         return Http.get(`${baseUrl}`)
     },
 
+    buscarTodosTicketsByDoc(documento){
+        return Http.get(`${baseUrl}/doc/${documento}`)
+    },
+
     buscarTicketById(id){
         return Http.get(`${baseUrl}/${id}`)
     },

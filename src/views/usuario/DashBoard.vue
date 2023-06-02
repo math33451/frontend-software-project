@@ -28,6 +28,16 @@
               </div>
               <br />
               <div class="col text-center">
+                <router-link to="/clientes">
+                  <b-button
+                    type="button"
+                    variant="primary">
+                    <i class="fas fa-sign-in-alt"></i> Visualizar Clientes
+                  </b-button>
+                </router-link>
+              </div>
+              <br />
+              <div class="col text-center">
                 <router-link to="/estoque">
                   <b-button
                     type="button"

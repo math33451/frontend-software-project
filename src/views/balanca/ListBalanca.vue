@@ -39,6 +39,13 @@
               </tr>
             </tbody>
           </table>
+          <b-button
+              type="button"
+              variant="secondary"
+              block
+              @click="voltar">
+              <i class="fas fa-sign-in-alt"></i> Voltar
+            </b-button>
         </div>
       </b-col>
       <b-col sm="7" class="d-flex justify-content-center align-items-center">
@@ -65,6 +72,9 @@
   
     methods: {
    
+      voltar(){
+            this.$router.push({name:"dashboard"})
+        },
     }
   }
   </script>

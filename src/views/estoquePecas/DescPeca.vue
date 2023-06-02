@@ -43,6 +43,13 @@
           <b-form>
               <br />
               <b-button
+              type="button"
+              variant="secondary"
+              block
+              @click="voltar">
+              <i class="fas fa-sign-in-alt"></i> Voltar
+            </b-button>
+              <b-button
                 type="button"
                 variant="primary"
                 block
@@ -93,6 +100,9 @@
         })
       },
 
+      voltar: function() {
+        this.$router.push({name:"estoquePeca"})
+      },
       excluirPeca() {
         EstoqueService.deletarPeca(this.id).then((response) =>{
             swal.alertSuccess(response.data)

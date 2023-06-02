@@ -9,12 +9,15 @@ import TelaInicial from '@/views/TelaInicial.vue'
 import CadastroTicket from '@/views/ticket/CadastroTicket.vue'
 import DescTicket from '@/views/ticket/DescTicket.vue'
 import ListTicket from '@/views/ticket/ListTicket.vue'
+import ListTicketCliente from '@/views/ticket/ListTicketCliente.vue'
 import EstoquePeca from '@/views/estoquePecas/EstoquePeca.vue'
 import CadastroPeca from '@/views/estoquePecas/CadastroPeca.vue'
 import DescPeca from '@/views/estoquePecas/DescPeca.vue'
 import ListBalanca from '@/views/balanca/ListBalanca.vue'
 import CadastroBalanca from '@/views/balanca/CadastroBalanca.vue'
 import DescBalanca from '@/views/balanca/DescBalanca.vue'
+import ListCliente from '@/views/cliente/ListCliente.vue'
+import DescCliente from '@/views/cliente/DescCliente.vue'
 
 Vue.use(Router);
 
@@ -24,6 +27,11 @@ const router = new Router({
         {
             path: '/',
             component: TelaInicial,
+        },
+
+        {
+            path: '/acompanharTicket',
+            component: ListTicketCliente,
         },
 
         {
@@ -102,6 +110,18 @@ const router = new Router({
             path: '/balancas/:id',
             name: 'descBalanca',
             component: DescBalanca,
+        },
+
+        {
+            path: '/clientes',
+            name: 'clientes',
+            component: ListCliente,
+        },
+
+        {
+            path: '/clientes/:id',
+            name: 'descCliente',
+            component: DescCliente,
         },
     ]
 })
