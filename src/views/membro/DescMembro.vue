@@ -34,7 +34,7 @@
   
             <br />
             <div class="row">
-              <div class="col-6">
+              <div class="col-6"> 
                 <b-form-group label="Email">
                   <b-form-input
                   class="form-control form-control-sm"
@@ -74,21 +74,41 @@
               <div class="card-body">
                 <h5 class="card-title">Dados de Endereço</h5>
                 <br />
+                <div class="row">
                 <div class="col-4">
                 <b-form-group label="CEP">
                   <the-mask 
-                  :mask="['####-###']"
+                  :mask="['#####-###']"
                   v-model="model.cep"
                   class="form-control form-control-sm"
                   />
                 </b-form-group>
+              </div>
+              <div class="col-4">
+                <b-form-group label="Municipio">
+                  <b-form-input
+                  class="form-control form-control-sm"
+                  v-model="model.localidade"
+                  
+                ></b-form-input>
+                </b-form-group>
+              </div>
+              <div class="col-2">
+                <b-form-group label="UF">
+                  <b-form-input
+                  class="form-control form-control-sm"
+                  v-model="model.uf"
+                  
+                ></b-form-input>
+                </b-form-group>
+              </div>
               </div>
                 <br />
                 <div class="col-12">
                 <b-form-group label="Endereço">
                   <b-form-input
                   class="form-control form-control-sm"
-                  v-model="model.endereco"
+                  v-model="model.logradouro"
                   
                 ></b-form-input>
                 </b-form-group>
@@ -149,6 +169,7 @@
   
   <script>
   import MembroService from "@/service/membroService.js"
+  import EnderecoService from "@/service/enderecoService.js"
   import swal from "@/utils/alertUtils.js"; 
   
   export default {
@@ -166,6 +187,9 @@
           logradouro: "",
           numeroEndereco: null,
           complemento: "",
+          bairro: "",
+          localidade: "",
+          uf: ""
         },
         id: this.$route.params.id,
         isNewMember: false,
@@ -190,7 +214,26 @@
             swal.alertError(e.response.data.message)
           })
         }
-        
+      },
+
+      getEndereco: async function(value) {
+        await EnderecoService.buscaPorCep(value).then((response) =>{
+          if(response.status == 200){
+            let enderecoResponse = response.data;
+            this.model.logradouro = enderecoResponse.logradouro;
+            this.model.bairro = enderecoResponse.bairro;
+            this.model.localidade = enderecoResponse.localidade;
+            this.model.uf = enderecoResponse.uf;
+          } else {
+            this.model.cep = null;
+            this.model.logradouro = null;
+            this.model.bairro = null;
+            this.model.localidade = null;
+          }
+        })
+        .catch((e) =>{
+          swal.alertError(e.response.data.message)
+        });
       },
 
       inicializarVariaveis(){
@@ -206,7 +249,10 @@
           logradouro: "",
           numeroEndereco: null,
           complemento: "",
-        },
+          bairro: "",
+          localidade: "",
+          uf: ""
+        }
         this.isNewMember = true;
       },
   
@@ -217,10 +263,14 @@
         this.model.dataNascimento = membro.dataNascimento
         this.model.numeroTelefone = membro.numeroTelefone
         this.model.email = membro.email
+
         this.model.cep = membro.endereco.cep
         this.model.logradouro = membro.endereco.logradouro
         this.model.numeroEndereco = membro.endereco.numeroEndereco
         this.model.complemento = membro.endereco.complemento
+        this.model.bairro = membro.endereco.bairro
+        this.model.localidade = membro.endereco.localidade
+        this.model.uf = membro.endereco.uf
       },
   
       voltar(){
@@ -238,6 +288,14 @@
         let membro = response.data
         this.mapearMembro(membro)
         });
+      }
+    },
+    watch: {
+      "model.cep": async function(newValue) {
+        if(newValue && newValue.length === 8){
+          await this.getEndereco(newValue);
+          return newValue;
+        }
       }
     }
   }
