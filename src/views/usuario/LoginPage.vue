@@ -53,8 +53,6 @@
 </template>
 
 <script>
- import userService from "@/service/userService.js"
- import swal from "@/utils/alertUtils.js";
 
 export default {
   data() {
@@ -67,16 +65,6 @@ export default {
   },
  
   methods: {
-    login() {
-      const request = this.mapearLogin();
-      userService.acessarAplicacao(request).then((response =>{
-        localStorage.setItem('user-token', response.data)
-        this.$router.push({name:"dashboard"})
-      }))
-      .catch(() =>{
-        swal.alertError("Usuário não autenticado.")
-      })
-    },
 
     mapearLogin(){
       return {

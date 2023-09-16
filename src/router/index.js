@@ -3,21 +3,21 @@ import Router from "vue-router"
 
 
 import Login from '@/views/usuario/LoginPage.vue'
-import CadastroUsuario from '@/views/usuario/CadastroUsuario.vue'
 import DashBoard from '@/views/usuario/DashBoard.vue'
 import TelaInicial from '@/views/TelaInicial.vue'
-import CadastroTicket from '@/views/ticket/CadastroTicket.vue'
-import DescTicket from '@/views/ticket/DescTicket.vue'
-import ListTicket from '@/views/ticket/ListTicket.vue'
-import ListTicketCliente from '@/views/ticket/ListTicketCliente.vue'
-import EstoquePeca from '@/views/estoquePecas/EstoquePeca.vue'
-import CadastroPeca from '@/views/estoquePecas/CadastroPeca.vue'
-import DescPeca from '@/views/estoquePecas/DescPeca.vue'
-import ListBalanca from '@/views/balanca/ListBalanca.vue'
-import CadastroBalanca from '@/views/balanca/CadastroBalanca.vue'
-import DescBalanca from '@/views/balanca/DescBalanca.vue'
-import ListCliente from '@/views/cliente/ListCliente.vue'
-import DescCliente from '@/views/cliente/DescCliente.vue'
+// import CadastroUsuario from '@/views/usuario/CadastroUsuario.vue'
+// import CadastroTicket from '@/views/ticket/CadastroTicket.vue'
+import DescMembro from '@/views/membro/DescMembro.vue'
+import ListMembros from '@/views/membro/ListMembros.vue'
+// import ListTicketCliente from '@/views/ticket/ListTicketCliente.vue'
+// import EstoquePeca from '@/views/estoquePecas/EstoquePeca.vue'
+// import CadastroPeca from '@/views/estoquePecas/CadastroPeca.vue'
+// import DescPeca from '@/views/estoquePecas/DescPeca.vue'
+// import ListBalanca from '@/views/balanca/ListBalanca.vue'
+// import CadastroBalanca from '@/views/balanca/CadastroBalanca.vue'
+// import DescBalanca from '@/views/balanca/DescBalanca.vue'
+// import ListCliente from '@/views/cliente/ListCliente.vue'
+// import DescCliente from '@/views/cliente/DescCliente.vue'
 
 Vue.use(Router);
 
@@ -31,8 +31,9 @@ const router = new Router({
         },
 
         {
-            path: '/acompanharTicket',
-            component: ListTicketCliente,
+            path: '/consultarMembros',
+            name: 'listaMembros',
+            component: ListMembros,
         },
 
         {
@@ -46,17 +47,17 @@ const router = new Router({
             component: DashBoard,
         },
     
-        {
-            path: '/cadastrarTicket',
-            name: 'cadastrarTicket',
-            component: CadastroTicket,
-        },
+        // {
+        //     path: '/cadastrarTicket',
+        //     name: 'cadastrarTicket',
+        //     component: CadastroTicket,
+        // },
     
-        {
-            path: '/cadastrarUsuario',
-            name: 'cadastrarUsuario',
-            component: CadastroUsuario,
-        },
+        // {
+        //     path: '/cadastrarUsuario',
+        //     name: 'cadastrarUsuario',
+        //     component: CadastroUsuario,
+        // },
     
         {
             path: '/login',
@@ -64,66 +65,66 @@ const router = new Router({
             component: Login,
         },
     
-        {
-            path: '/tickets',
-            name: 'tickets',
-            component: ListTicket,
-        },
+        // {
+        //     path: '/tickets',
+        //     name: 'tickets',
+        //     component: ListTicket,
+        // },
     
         
         {
-            path: '/ticket/:id',
-            name: 'ticket',
-            component: DescTicket,
+            path: '/membro/:id',
+            name: 'membro',
+            component: DescMembro,
         },
 
-        {
-            path: '/estoque',
-            name: 'estoquePeca',
-            component: EstoquePeca,
-        },
+        // {
+        //     path: '/estoque',
+        //     name: 'estoquePeca',
+        //     component: EstoquePeca,
+        // },
 
-        {
-            path: '/cadastraPeca',
-            name: 'cadastraPeca',
-            component: CadastroPeca,
-        },
+        // {
+        //     path: '/cadastraPeca',
+        //     name: 'cadastraPeca',
+        //     component: CadastroPeca,
+        // },
 
-        {
-            path: '/estoque/:id',
-            name: 'peca',
-            component: DescPeca,
-        },
+        // {
+        //     path: '/estoque/:id',
+        //     name: 'peca',
+        //     component: DescPeca,
+        // },
 
-        {
-            path: '/balancas',
-            name: 'balancas',
-            component: ListBalanca,
-        },
+        // {
+        //     path: '/balancas',
+        //     name: 'balancas',
+        //     component: ListBalanca,
+        // },
 
-        {
-            path: '/cadastraBalanca',
-            name: 'cadastraBalanca',
-            component: CadastroBalanca,
-        },
+        // {
+        //     path: '/cadastraBalanca',
+        //     name: 'cadastraBalanca',
+        //     component: CadastroBalanca,
+        // },
 
-        {
-            path: '/balancas/:id',
-            name: 'descBalanca',
-            component: DescBalanca,
-        },
+        // {
+        //     path: '/balancas/:id',
+        //     name: 'descBalanca',
+        //     component: DescBalanca,
+        // },
 
-        {
-            path: '/clientes',
-            name: 'clientes',
-            component: ListCliente,
-        },
+        // {
+        //     path: '/clientes',
+        //     name: 'clientes',
+        //     component: ListCliente,
+        // },
 
-        {
-            path: '/clientes/:id',
-            name: 'descCliente',
-            component: DescCliente,
-        },
+        // {
+        //     path: '/clientes/:id',
+        //     name: 'descCliente',
+        //     component: DescCliente,
+        // },
     ]
 })
 

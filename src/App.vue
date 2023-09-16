@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar :logado="logado"/>
+    <Navbar/>
     <router-view/>
   </div>
 </template>
@@ -17,9 +17,6 @@ export default{
     }
   },
   computed: {
-    logado(){
-      return localStorage.getItem('token') != null ? true:false
-    }
   }
 }
 

@@ -2,30 +2,20 @@
   <b-row class="vh-100 vw-100 row-login">
     <b-col class="d-flex justify-content-center align-items-center">
       <div class="col-8">
-        <h2 class="text-center mb-5 title-warning">Reclamações?</h2>
-        <h4 class="text-center mb-5">Envie um ticket e nossa equipe entrará em contato.</h4>
+        <h2 class="text-center mb-5 title-warning">Seja um Parceiro de Deus</h2>
         <b-form>
 
             <br />
             <div class="col text-center">
-              <router-link to="/cadastrarTicket">
+              <router-link to="/consultarMembros">
                 <b-button
                   type="button"
                   variant="primary">
-                  <i class="fas fa-sign-in-alt"></i> Enviar Ticket
+                  <i class="fas fa-sign-in-alt"></i> Consultar Membros
                 </b-button>
               </router-link>
             </div>
             <br />
-            <div class="col text-center">
-              <router-link to="/acompanharTicket">
-                <b-button
-                  type="button"
-                  variant="primary">
-                  <i class="fas fa-sign-in-alt"></i> Acompanhar Tickets
-                </b-button>
-              </router-link>
-            </div>
         </b-form>
       </div>
     </b-col>

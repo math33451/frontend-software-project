@@ -3,46 +3,25 @@
       <b-col class="d-flex justify-content-center align-items-center">
         <div class="col-8">
           <h2 class="text-center mb-5 title-warning">Seja Bem Vindo, {{ nomeUsuario }}.</h2>
-          <h4 class="text-center mb-5">Você tem {{ quantidadeTickets }} tickets não visualizados.</h4>
           <b-form>
   
               <br />
               <div class="col text-center">
-                <router-link to="/tickets">
+                <router-link to="/consultarMembros">
                   <b-button
                     type="button"
                     variant="primary">
-                    <i class="fas fa-sign-in-alt"></i> Visualizar Tickets
+                    <i class="fas fa-sign-in-alt"></i> Visualizar Membros
                   </b-button>
                 </router-link>
               </div>
               <br />
               <div class="col text-center">
-                <router-link to="/balancas">
+                <router-link to="/pagamento">
                   <b-button
                     type="button"
                     variant="primary">
-                    <i class="fas fa-sign-in-alt"></i> Visualizar Balanças
-                  </b-button>
-                </router-link>
-              </div>
-              <br />
-              <div class="col text-center">
-                <router-link to="/clientes">
-                  <b-button
-                    type="button"
-                    variant="primary">
-                    <i class="fas fa-sign-in-alt"></i> Visualizar Clientes
-                  </b-button>
-                </router-link>
-              </div>
-              <br />
-              <div class="col text-center">
-                <router-link to="/estoque">
-                  <b-button
-                    type="button"
-                    variant="primary">
-                    <i class="fas fa-sign-in-alt"></i> Estoque de Peças
+                    <i class="fas fa-sign-in-alt"></i> Realizar Pagamento
                   </b-button>
                 </router-link>
               </div>
@@ -56,7 +35,6 @@
   </template>
   
   <script>
-   import ticketService from "@/service/ticketService.js"
 
   export default {
     data() {
@@ -72,9 +50,6 @@
 
     methods: {
         inicializarVariaveis: async function() {
-            await ticketService.buscarQuantidadeTicketsPendentes().then((response) =>{
-                this.quantidadeTickets = response.data
-            })
         },
    
     },

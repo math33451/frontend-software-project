@@ -1,4 +1,4 @@
-# front-ticket
+# project-pd
 
 ## Project setup
 ```

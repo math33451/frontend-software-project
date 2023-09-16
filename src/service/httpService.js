@@ -2,8 +2,8 @@ import axios from 'axios';
 // import store from '@/shared/consts/store';
 
 const httpService = axios.create({
-    baseURL: 'http://localhost:8085/ticket-api/',
-    headers: { 'X-Requested-With': 'XMLHttpRequest'}
+    baseURL: 'http://localhost:8085/project-pd/',
+    headers: { 'Access-Control-Allow-Origin': '*'}
 });
 
 // httpService.interceptors.request.use((config) => {
