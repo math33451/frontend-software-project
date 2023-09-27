@@ -9,6 +9,7 @@ import TelaInicial from '@/views/TelaInicial.vue'
 // import CadastroTicket from '@/views/ticket/CadastroTicket.vue'
 import DescMembro from '@/views/membro/DescMembro.vue'
 import ListMembros from '@/views/membro/ListMembros.vue'
+import NovoPagamento from '@/views/pagamento/NovoPagamento.vue'
 // import ListTicketCliente from '@/views/ticket/ListTicketCliente.vue'
 // import EstoquePeca from '@/views/estoquePecas/EstoquePeca.vue'
 // import CadastroPeca from '@/views/estoquePecas/CadastroPeca.vue'
@@ -76,6 +77,12 @@ const router = new Router({
             path: '/membro/:id',
             name: 'membro',
             component: DescMembro,
+        },
+        
+        {
+            path: '/pagamento',
+            name: 'pagamento',
+            component: NovoPagamento,
         },
 
         // {
