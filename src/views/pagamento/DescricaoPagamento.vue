@@ -44,7 +44,7 @@
               </div>
               <div class="row">
                   <div class="col-6">
-                    <b-form-group label="Documento do Pagante">
+                    <b-form-group label="Documento">
                       <the-mask 
                       :mask="['###.###.###-##']"
                       v-model="model.pagante.cpf"

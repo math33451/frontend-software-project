@@ -4,7 +4,6 @@ import Router from "vue-router"
 
 import Login from '@/views/usuario/LoginPage.vue'
 import DashBoard from '@/views/usuario/DashBoard.vue'
-import TelaInicial from '@/views/TelaInicial.vue'
 import DescMembro from '@/views/membro/DescMembro.vue'
 import ListMembros from '@/views/membro/ListMembros.vue'
 import NovoPagamento from '@/views/pagamento/NovoPagamento.vue'
@@ -15,12 +14,6 @@ Vue.use(Router);
 
 const router = new Router({
     routes: [
-
-        {
-            path: '/',
-            name: 'telaInicial',
-            component: TelaInicial,
-        },
 
         {
             path: '/consultarMembros',
@@ -34,7 +27,7 @@ const router = new Router({
         },
 
         {
-            path: '/dashboard',
+            path: '/dashBoard',
             name: 'dashboard',
             component: DashBoard,
         },

@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable type="dark" variant="dark">
-      <router-link to="/">
+      <router-link to="/dashboard">
           <!-- <img src="" class="img-balanca" alt="balanca"> -->
               Projeto Parceiro de Deus
       </router-link> 

@@ -25,6 +25,17 @@
                   </b-button>
                 </router-link>
               </div>
+            <br />
+            <div class="col text-center">
+              <router-link to="/listaPagamento">
+                <b-button
+                  type="button"
+                  variant="primary">
+                  <i class="fas fa-sign-in-alt"></i> Consultar Pagamentos
+                </b-button>
+              </router-link>
+            </div>
+            <br />
           </b-form>
         </div>
       </b-col>

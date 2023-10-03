@@ -17,7 +17,7 @@
                 <td>{{ p.dataPagamento }}</td>
                 <td>
                   <div class="btn-group">
-                    <router-link :to="{name:'descricaoPagamento', params: {id:p.id}}"><i class="fa fa-pencil"></i></router-link>
+                    <router-link :to="{name:'descricaoPagamento', params: {id:p.id}}"><i class="fa fa-eye"></i></router-link>
                   </div>
                 </td>
               </tr>
