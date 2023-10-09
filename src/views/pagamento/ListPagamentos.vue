@@ -14,7 +14,7 @@
             <tbody>
               <tr v-for="p of pagamentos" :key="p.id">
                 <td>{{ p.pagante.nomeCompleto }}</td>
-                <td>{{ dataAtualFormatada(p.dataPagamento) }}</td>
+                <td>{{ p.dataExibicao }}</td>
                 <td>
                   <div class="btn-group">
                     <router-link :to="{name:'descricaoPagamento', params: {id:p.id}}"><i class="fa fa-eye"></i></router-link>
@@ -59,10 +59,10 @@
               this.$router.push({name:"dashboard"})
           },
       
-      dataAtualFormatada(data){
-        let dataFormatada = data.split('-').reverse().join('/');
-        return dataFormatada;
-      }
+      // dataAtualFormatada(data){
+      //   let dataFormatada = data.split('-').reverse().join('/');
+      //   return dataFormatada;
+      // }
     }
   }
   </script>
