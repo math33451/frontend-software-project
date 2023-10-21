@@ -14,5 +14,9 @@ export default {
 
     buscarPagamentoById(id){
         return Http.get(`${baseUrl}/${id}`);
+    },
+
+    fecharMes(mes){
+        return Http.get(`${baseUrl}/fecharMes/${mes}`);
     }
 }
