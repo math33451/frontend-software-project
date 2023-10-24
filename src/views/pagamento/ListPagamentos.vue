@@ -13,7 +13,6 @@
           </b-button>
           <div class="row" v-if="exibeFechamento">
             <label>Mês de Fechamento</label>
-            {{ mesFechamento }}
               <select class="col-6" v-model="mesFechamento">
                 <option v-for="mes in mesesFechamento" v-bind:value="mes.value" :key="mes.value">
                   {{ mes.text }}
@@ -65,11 +64,13 @@
   
   <script>
   import pagamentoService from "@/service/pagamentoService.js"
+  import swal from "@/utils/alertUtils.js"; 
   
   export default {
     data() {
       return {
         pagamentos: [],
+        detalhesFechamento: null,
         exibeFechamento: false,
         mesFechamento: null,
         mesesFechamento: [{value: 1, text: "Janeiro"}, 
@@ -104,7 +105,9 @@
 
       fecharMes(){
         pagamentoService.fecharMes(this.mesFechamento).then((response) =>{
-          console.log(response.data);
+          this.detalhesFechamento = response.data
+          swal.alertSuccess("No mês de " + this.detalhesFechamento.mesReferencia + " o valor total foi de R$" 
+          + this.detalhesFechamento.valorTotal + ",00")
         });
       }
     }

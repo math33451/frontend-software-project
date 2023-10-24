@@ -146,7 +146,7 @@
       },
   
       voltar(){
-        this.$router.push({name:"telaInicial"})
+        this.$router.push({name:"listaPagamento"})
       }
    
     },
