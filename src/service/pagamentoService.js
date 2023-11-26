@@ -16,7 +16,12 @@ export default {
         return Http.get(`${baseUrl}/${id}`);
     },
 
-    fecharMes(mes){
-        return Http.get(`${baseUrl}/fecharMes/${mes}`);
+    fecharMes(mes, data){
+        return Http.post(`${baseUrl}/fecharMes/${mes}`, data,
+        { responseType: 'blob' });
+    },
+
+    download(){
+        return Http.get(`${baseUrl}/downloadPagamento`);
     }
 }

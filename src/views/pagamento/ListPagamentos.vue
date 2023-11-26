@@ -64,7 +64,7 @@
   
   <script>
   import pagamentoService from "@/service/pagamentoService.js"
-  import swal from "@/utils/alertUtils.js"; 
+  // import swal from "@/utils/alertUtils.js"; 
   
   export default {
     data() {
@@ -105,10 +105,15 @@
 
       fecharMes(){
         pagamentoService.fecharMes(this.mesFechamento).then((response) =>{
-          this.detalhesFechamento = response.data
-          swal.alertSuccess("No mês de " + this.detalhesFechamento.mesReferencia + " o valor total foi de R$" 
-          + this.detalhesFechamento.valorTotal + ",00")
-        });
+          let binario = response.data;
+          const url = window.URL.createObjectURL(binario);
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', `Fechamento_mes${this.mesFechamento}.xlsx`);
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch((response) => console.log(response));
       }
     }
   }
